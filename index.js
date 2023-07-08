@@ -1,86 +1,21 @@
-// document.getElementById("count").innerText = 5
+let countEl = document.getElementById("count-el") // pass in arguments, see below for explanation
+let saveEl = document.getElementById("save-el") // Grabs the save-el paragraph and store it in a variable called saveEl
 
-// let count = 5
-// count = count + 1
-// console.log(count)
+let count = 0 // initializer, sets count to 0
 
-// intialize the count as 0
-// listen for clicks on the increment button
-// increment the count variable when the button is clicked (log it out)
-// change the count-el in the HTML to reflect the new count
-
-let countEl = document.getElementById("count-el") // pass in arguments
-
-let count = 0
-
-function increment() {
-    count = count + 1
-    countEl.innerText = count
+function increment() { // increment the count variable when the button is clicked
+    count += 1 // count = count + 1, adds numerical one making a new count
+    countEl.textContent = count // tells html to equal countEl (in html) to count (which was given an incremnet of 1)
 }
 
-// 1. Create a function, save(), which logs out the count when it's called
-
-
-// -----------------------------------------
-// function countdown() {
-//     console.log(5)
-//     console.log(4)
-//     console.log(3)
-//     console.log(2)
-//     console.log(1)
-// }
-
-// // Setting up the the race 
-
-// countdown()
-
-// // GO! 🏁
-// // Players are running the race 💨
-// // Race is finished! 🍾
-
-// // Get ready for a new race 
-
-// countdown()
-
-// -----------------------------------------
-
-// Create a function (you decide the name) that logs out the number 42 to the console
-// Call/invoke the function
-
-// function myLogger() {
-//     console.log(42)
-// }
-
-// myLogger()
-
-// -----------------------------------------
-
-// let lap1 = 34
-// let lap2 = 33
-// let lap3 = 36
-
-// // Create a function that logs out the sum of all the lap times
-// function logLapTime() {
-//     let totalTime = lap1 + lap2 + lap3
-//     console.log(totalTime)
-// }
-
-// // console.log(totalTime)
-
-// // console.log(totalTime) will not work, because the variable totalTime is instanced in the function only and cannot be called outside. Therefor it is better to use logLapTime()
-
-// -----------------------------------------
-
-// let lapsCompleted = 0
-// function lapsIncrement() {
-//     lapsCompleted = lapsCompleted + 1
-// }
-// lapsIncrement()
-// lapsIncrement()
-// lapsIncrement()
-
-// console.log(lapsCompleted)
-
-// -----------------------------------------
-
+function save() {
+    // Create a variable that contains both the count and the dash separator, i.e. "12 - "
+    countStr = count + " - "
+    // Render the variable in the saveEl using innerText, adding countStr to display in html
+    // use textContent instead of innerText, see mdn. Essentially its better to use textContent as its more human readable and gathers contents of all elements. 
+    // By changing to saveEl.textContent += countStr, we get our spaces between the numbers saved
+    saveEl.textContent += countStr
+    countEl.textContent = 0 // changes only the html element to 0, needs code below to set back to 0 as well
+    count = 0 // changes js count back to 0
+}
 
